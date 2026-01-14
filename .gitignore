@@ -1,0 +1,6 @@
+backend.zip
+
+### OS files ###
+.DS_Store
+*.zip
+*.env
