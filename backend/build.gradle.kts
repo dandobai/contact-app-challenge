@@ -21,6 +21,10 @@ repositories {
 }
 
 dependencies {
+    implementation("org.xerial:sqlite-jdbc:3.45.1.0")
+    implementation("org.hibernate.orm:hibernate-community-dialects:6.4.1.Final")
+
+    implementation("io.github.oshai:kotlin-logging-jvm:5.1.0")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.springframework.boot:spring-boot-starter-webmvc")
