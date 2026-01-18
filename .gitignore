@@ -4,3 +4,61 @@ backend.zip
 .DS_Store
 *.zip
 *.env
+
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Kotlin ###
+.kotlin
+*.class
+*.kotlin_metadata
+*.kotlin_module
+
+### Logs ###
+logs/
+*.log
+
+### Spring Boot ###
+/tmp/
+
+# SQLite DB
+backend/contacts.db
+
+### uploads ###
+backend/uploads/*
+!backend/uploads/.gitkeep
