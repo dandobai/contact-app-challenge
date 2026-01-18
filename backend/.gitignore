@@ -48,3 +48,10 @@ logs/
 
 ### Spring Boot ###
 /tmp/
+
+# SQLite DB
+backend/contacts.db
+
+### uploads ###
+backend/uploads/*
+!backend/uploads/.gitkeep
