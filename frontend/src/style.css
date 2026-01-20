@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  /* Font családok */
+  --font-glysa: "Glysa", serif;
+  --font-lexend: "Lexend Deca", sans-serif;
+
+  /* --- GLYSA STÍLUSOK (H1, H2) --- */
+  /* Glysa - H1 - Medium (32px/48px) */
+  --text-glysa-h1: 32px;
+  --text-glysa-h1--line-height: 48px;
+  --text-glysa-h1--letter-spacing: 0;
+  --text-glysa-h1--font-weight: 500;
+
+  /* Glysa - H2 - Medium (24px/40px) */
+  --text-glysa-h2: 24px;
+  --text-glysa-h2--line-height: 40px;
+  --text-glysa-h2--letter-spacing: 0;
+  --text-glysa-h2--font-weight: 500;
+
+
+  /* --- LEXEND DECA STÍLUSOK (Regular, Body, Small) --- */
+  /* Lexend Deca - Regular (16px/24px, 1% spacing) */
+  --text-lexend-reg: 16px;
+  --text-lexend-reg--line-height: 24px;
+  --text-lexend-reg--letter-spacing: 0.01em;
+  --text-lexend-reg--font-weight: 400;
+
+  /* Lexend Deca - Body (14px/20px, 1% spacing) */
+  --text-lexend-body: 14px;
+  --text-lexend-body--line-height: 20px;
+  --text-lexend-body--letter-spacing: 0.01em;
+  --text-lexend-body--font-weight: 400;
+
+  /* Lexend Deca - Small (12px/12px, 1% spacing) */
+  --text-lexend-small: 12px;
+  --text-lexend-small--line-height: 12px;
+  --text-lexend-small--letter-spacing: 0.01em;
+  --text-lexend-small--font-weight: 400;
+
+  /* Új alap háttérszín */
+  --color-sotet: #141414;
+
+  /* A bg-sotet 20%-kal világosabb változata (80% sotet, 20% feher) */
+  --color-sotet-vilagosabb: #1E1E1E;
+}
+
+body {
+  background-color: #1E1E1E;
+}
