@@ -21,6 +21,17 @@ repositories {
 }
 
 dependencies {
+    implementation("me.paulschwarz:spring-dotenv:4.0.0")
+
+    implementation("software.amazon.awssdk:s3:2.25.0")
+
+    implementation("org.springframework.boot:spring-boot-starter-validation")
+
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("io.jsonwebtoken:jjwt-api:0.11.5")
+    runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.5")
+    runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.11.5")
+
     implementation("org.xerial:sqlite-jdbc:3.45.1.0")
     implementation("org.hibernate.orm:hibernate-community-dialects:6.4.1.Final")
 

@@ -8,3 +8,9 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+aws:
+  region: eu-north-1
+  s3:
+    bucket: contact-app-images-daniel
+  access-key: ${AWS_ACCESS_KEY}
+  secret-key: ${AWS_SECRET_KEY}
