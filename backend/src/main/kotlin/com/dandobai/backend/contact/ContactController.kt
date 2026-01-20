@@ -2,41 +2,31 @@ package com.dandobai.backend.contact
 
 import jakarta.validation.Valid
 import org.springframework.web.bind.annotation.*
-import org.springframework.web.multipart.MultipartFile
-
 
 @RestController
-@RequestMapping("/contacts")
-class ContactController (
-    private val service: ContactService
+@RequestMapping("/api/contacts")
+class ContactController(
+    private val contactService: ContactService
 ) {
+
     @GetMapping
-    fun getAll() =
-        service.findAll()
+    fun list(): List<ContactResponseDto> =
+        contactService.listForCurrentUser().map { it.toDto() }
 
     @GetMapping("/{id}")
-    fun getById(@PathVariable id: Long) =
-        service.findById(id)
+    fun get(@PathVariable id: Long): ContactResponseDto =
+        contactService.getByIdForCurrentUser(id).toDto()
 
     @PostMapping
-    fun create(@Valid
-               @RequestBody dto: ContactDto) =
-        service.create(dto)
+    fun create(@Valid @RequestBody dto: ContactDto): ContactResponseDto =
+        contactService.create(dto).toDto()
 
     @PutMapping("/{id}")
-    fun update(@PathVariable id: Long,
-               @Valid
-               @RequestBody dto: ContactDto) =
-        service.update(id,dto)
+    fun update(@PathVariable id: Long, @Valid @RequestBody dto: ContactDto): ContactResponseDto =
+        contactService.update(id, dto).toDto()
 
     @DeleteMapping("/{id}")
-    fun delete(@PathVariable id: Long){
-        service.delete(id)
-    }
-
-    @PostMapping("/{id}/image")
-    fun uploadImage(
-        @PathVariable id: Long,
-        @RequestParam("file") file: MultipartFile) =
-        service.uploadImage(id, file)
+    fun delete(@PathVariable id: Long) =
+        contactService.delete(id)
 }
+

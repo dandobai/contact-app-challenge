@@ -4,18 +4,13 @@ import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotBlank
 
 data class ContactDto(
-    @field:NotBlank
+    @field:NotBlank(message = "Name is required")
     val name: String,
 
-    @field:Email
+    @field:NotBlank(message = "Email is required")
+    @field:Email(message = "Invalid email format")
     val email: String,
 
-    @field:NotBlank
+    @field:NotBlank(message = "Phone is required")
     val phone: String
-) {
-    fun toEntity() = Contact(
-        name = name,
-        email = email,
-        phone = phone
-    )
-}
+)

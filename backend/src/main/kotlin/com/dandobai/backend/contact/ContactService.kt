@@ -1,67 +1,65 @@
 package com.dandobai.backend.contact
-import io.github.oshai.kotlinlogging.KotlinLogging
+
+import com.dandobai.backend.user.UserService
 import org.springframework.stereotype.Service
-import org.springframework.web.multipart.MultipartFile
-import java.nio.file.Files
-import java.nio.file.Paths
-import java.util.UUID
+import org.springframework.transaction.annotation.Transactional
 
 @Service
-class ContactService (
-    private val repository: ContactRepository
-){
-    private val log = KotlinLogging.logger {}
+class ContactService(
+    private val contactRepository: ContactRepository,
+    private val userService: UserService
+) {
 
-    fun findAll(): List<Contact> {
-        log.info { "Fetching all contacts" }
-        return repository.findAll()
-    }
-
-    fun findById(id: Long): Contact {
-        log.info { "Fetching contact with id=$id" }
-        return repository.findById(id)
-            .orElseThrow{ ContactNotFoundException(id) }
-    }
-
+    @Transactional
     fun create(dto: ContactDto): Contact {
-        log.info { "Creating new contact: $dto" }
-        val entity = dto.toEntity()
-        return repository.save(entity)
+        val user = userService.currentUser()
+        val contact = Contact(
+            name = dto.name,
+            email = dto.email,
+            phone = dto.phone,
+            user = user
+        )
+        return contactRepository.save(contact)
     }
 
+    fun listForCurrentUser(): List<Contact> {
+        val user = userService.currentUser()
+        return contactRepository.findAllByUser(user)
+    }
+
+    fun getByIdForCurrentUser(id: Long): Contact {
+        val user = userService.currentUser()
+        val contact = contactRepository.findById(id)
+            .orElseThrow { ContactNotFoundException() }
+
+        if (contact.user.id != user.id) {
+            throw IllegalStateException("You do not own this contact")
+        }
+
+        return contact
+    }
+
+    @Transactional
     fun update(id: Long, dto: ContactDto): Contact {
-        log.info { "Updating contact with id=$id" }
-        val existing = findById(id)
-        val updated = existing.copy(
+        val contact = getByIdForCurrentUser(id)
+        val updated = contact.copy(
             name = dto.name,
             email = dto.email,
             phone = dto.phone
         )
-        return repository.save(updated)
+        return contactRepository.save(updated)
     }
 
+    @Transactional
     fun delete(id: Long) {
-        log.info { "Deleting contact with id=$id" }
-        repository.deleteById(id)
-    }
-
-    fun uploadImage(id: Long, file: MultipartFile): Contact {
-        log.info { "Uploading image for contact id=$id" }
-
-        val contact = findById(id)
-
-        val uploadsDir = Paths.get("uploads").toAbsolutePath()
-        if(!Files.exists(uploadsDir)) {
-            Files.createDirectories(uploadsDir)
-        }
-
-        val suffix = UUID.randomUUID().toString().take(8)
-        val filename = "contact_${id}_$suffix"
-        val filePath = uploadsDir.resolve(filename)
-
-        Files.write(filePath, file.bytes)
-
-        val updated = contact.copy(imagePath = filePath.toString())
-        return repository.save(updated)
+        val contact = getByIdForCurrentUser(id)
+        contactRepository.delete(contact)
     }
 }
+fun Contact.toDto() = ContactResponseDto(
+    id = this.id!!,
+    name = this.name,
+    email = this.email,
+    phone = this.phone,
+    imagePath = this.imagePath
+)
