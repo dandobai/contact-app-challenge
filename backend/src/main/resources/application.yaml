@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:sqlite:contacts.db
+    driver-class-name: org.sqlite.JDBC
+
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+aws:
+  region: eu-north-1
+  s3:
+    bucket: contact-app-images-daniel
+  access-key: ${AWS_ACCESS_KEY}
+  secret-key: ${AWS_SECRET_KEY}
