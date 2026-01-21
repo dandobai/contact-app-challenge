@@ -4,9 +4,9 @@ A full-stack contact management application built with **Spring Boot (Kotlin)** 
 
 ---
 
-## 🚀 Features
+## Features
 
-### 🧩 Backend (Spring Boot + Kotlin)
+### Backend (Spring Boot + Kotlin)
 - REST API for contacts management
 - User authentication (JWT)
 - Image upload to AWS S3
@@ -14,7 +14,7 @@ A full-stack contact management application built with **Spring Boot (Kotlin)** 
 - Contact image upload + retrieval
 - Clean service-based architecture
 
-### 🎨 Frontend (Vue 3 + Pinia + Tailwind)
+### Frontend (Vue 3 + Pinia + Tailwind)
 - Contact list with CRUD operations
 - Contact modal with image preview
 - User avatar upload modal
@@ -24,7 +24,7 @@ A full-stack contact management application built with **Spring Boot (Kotlin)** 
 
 ---
 
-## 📦 Tech Stack
+## Tech Stack
 
 | Layer | Technologies |
 |-------|--------------|
@@ -35,14 +35,14 @@ A full-stack contact management application built with **Spring Boot (Kotlin)** 
 
 ---
 
-## 🛠️ Setup & Installation
+## Setup & Installation
 
 ### 1. Clone the repository
 
     git clone [https://github.com/](https://github.com/)<your-username>/contact-app-challenge.git
     cd contact-app-challenge
 
-### 🖥️ Backend Setup
+### Backend Setup
 
 **1. Install dependencies**
 Navigate to the backend folder and build the project:
@@ -65,7 +65,7 @@ Create a `.env` file in the project root or set environment variables:
 
 The backend runs on: `http://localhost:8080`
 
-### 🌐 Frontend Setup
+### Frontend Setup
 
 **1. Install dependencies**
 Navigate to the frontend folder:
@@ -81,7 +81,7 @@ The frontend runs on: `http://localhost:5173`
 
 ---
 
-## 🖼️ Image Upload Flow
+## Image Upload Flow
 
 **Contact Images**
 - Uploaded via `ContactModal`.
@@ -95,7 +95,7 @@ The frontend runs on: `http://localhost:5173`
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
     contact-app-challenge/
     ├── backend/
@@ -129,12 +129,12 @@ The frontend runs on: `http://localhost:5173`
 
 ---
 
-## 📄 License
+## License
 
 MIT — free to use, modify, and learn from.
 
 ---
 
-## 👤 Author
+## Author
 
 **Dániel Dobai** Backend developer & architect with full-stack experience.
