@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:sqlite:contacts.db
+    url: jdbc:sqlite:${DB_PATH}
     driver-class-name: org.sqlite.JDBC
 
   jpa:
