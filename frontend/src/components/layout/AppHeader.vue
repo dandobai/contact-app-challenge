@@ -14,7 +14,7 @@ const imageStore = useImageStore()
 const showAddModal = ref(false)
 const showUserImageModal = ref(false)
 
-const s3Url = "https://contact-app-images-daniel.s3.eu-north-1.amazonaws.com/"
+const s3Url = import.meta.env.VITE_S3_URL;
 
 // Fetch user avatar on load
 onMounted(() => {

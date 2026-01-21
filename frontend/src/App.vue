@@ -15,7 +15,7 @@ const contactStore = useContactStore();
 const imageStore = useImageStore();
 const router = useRouter();
 
-const s3Url = "https://contact-app-images-daniel.s3.eu-north-1.amazonaws.com";
+const s3Url = import.meta.env.VITE_S3_URL as string;
 const userImage = ref<string | null>(null);
 
 // Fetch user image directly here to keep auth.ts clean and stable

@@ -117,7 +117,7 @@ const imageFile = ref(null)
 const fileInput = ref(null)
 
 // Az S3 URL-nek egyeznie kell a ContactCard-ban használttal
-const s3Url = "https://contact-app-images-daniel.s3.eu-north-1.amazonaws.com/";
+const s3Url = import.meta.env.VITE_S3_URL;
 
 watch(
   () => props.initialData,

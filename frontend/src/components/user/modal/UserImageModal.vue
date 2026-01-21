@@ -8,7 +8,7 @@ const props = defineProps<{
 
 const authStore = useAuthStore();
 
-const s3Url = "https://contact-app-images-daniel.s3.eu-north-1.amazonaws.com/";
+const s3Url = import.meta.env.VITE_S3_URL;
 
 const imagePreview = ref<string | null>(null);
 const imageFile = ref<File | null>(null);

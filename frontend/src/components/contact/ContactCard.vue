@@ -6,7 +6,7 @@ import { useContactStore } from "@/stores/contactStore";
 const props = defineProps<{ contact: ContactResponseDto }>();
 const contactStore = useContactStore();
 
-const s3Url = "https://contact-app-images-daniel.s3.eu-north-1.amazonaws.com/";
+const s3Url = import.meta.env.VITE_S3_URL;
 const emit = defineEmits(['delete', 'favorite']); // 'edit' removed as we use store
 
 const isMenuOpen = ref(false);
