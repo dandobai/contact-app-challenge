@@ -119,7 +119,7 @@ The frontend runs on: `http://localhost:5173`
 
 ---
 
-## 🧪 Development Notes
+## Development Notes
 
 - **File Upload:** Uses `FormData` + `MultipartFile` for seamless transmission.
 - **S3 URLs:** Constructed dynamically based on the stored key.
