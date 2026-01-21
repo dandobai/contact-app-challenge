@@ -1,10 +1,20 @@
 import { defineStore } from "pinia";
 import api from "../api/axios";
 
-interface LoginRequest { email: string; password: string; }
-interface RegisterRequest { email: string; password: string; }
-interface AuthResponse { token: string; }
-interface UserImageResponse { imagePath: string; }
+interface LoginRequest {
+  email: string;
+  password: string;
+}
+interface RegisterRequest {
+  email: string;
+  password: string;
+}
+interface AuthResponse {
+  token: string;
+}
+interface UserImageResponse {
+  imagePath: string;
+}
 
 // Meghatározzuk a State típusát, hogy a TS ne panaszkodjon
 interface AuthState {
@@ -21,6 +31,17 @@ export const useAuthStore = defineStore("auth", {
   }),
 
   actions: {
+    async uploadUserImage(file: File) {
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const res = await api.post("/images/user", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
+      this.userImage = res.data;
+    },
+
     async fetchUserImage() {
       if (!this.token) return;
       try {
