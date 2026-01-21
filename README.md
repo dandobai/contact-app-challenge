@@ -17,11 +17,12 @@ A full-stack contact management application built with Spring Boot (Kotlin) and 
 ### Backend (Kotlin)
 The backend follows a domain-driven service architecture:
 
+```text
 backend/src/main/kotlin/com/dandobai/backend/
-|-- auth/               # Authentication controllers and JWT security logic
+|-- auth/               # Authentication controllers and login logic
 |-- common/             # Shared logic
 |   |-- exception/      # Global error handling and custom exceptions
-|-- config/             # AWS S3 and Security configurations
+|-- config/             # AWS S3 and App configurations
 |-- contact/            # Contact CRUD operations and business logic
 |-- image/              # S3 service for handling file uploads
 |-- user/               # User profile and avatar management
@@ -47,7 +48,7 @@ frontend/src/
 
 ### 1. Backend Setup
 1. Navigate to the backend directory.
-2. Create a .env file with your AWS and JWT credentials.
+2. Create a .env file with your AWS credentials.
 3. Build and run:
    Command: ./gradlew bootRun
 
