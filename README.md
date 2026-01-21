@@ -41,7 +41,7 @@ frontend/src/
 |-- stores/             # Pinia stores for reactive state (Auth, Contacts)
 |-- types/              # TypeScript interfaces and types
 |-- views/              # Main page components (Home, Login, Dashboard)
-
+```
 ---
 
 ## Setup and Installation
