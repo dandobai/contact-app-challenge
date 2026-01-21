@@ -16,8 +16,8 @@ import software.amazon.awssdk.services.s3.model.S3Exception
 class ImageService(
     @Value("\${aws.s3.bucket}") private val bucketName: String,
     @Value("\${aws.region}") private val region: String,
-    @Value("\${aws.access-Key}") private val accessKey: String,
-    @Value("\${aws.secret-Key}") private val secretKey: String
+    @Value("\${aws.access-key}") private val accessKey: String,
+    @Value("\${aws.secret-key}") private val secretKey: String
 ) {
 
     private val log = LoggerFactory.getLogger(javaClass)
