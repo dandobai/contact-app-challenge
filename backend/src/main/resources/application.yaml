@@ -9,8 +9,8 @@ spring:
       ddl-auto: update
     show-sql: true
 aws:
-  region: eu-north-1
+  region: ${AWS_REGION}
   s3:
-    bucket: contact-app-images-daniel
+    bucket: ${S3_BUCKET_NAME}
   access-key: ${AWS_ACCESS_KEY}
   secret-key: ${AWS_SECRET_KEY}
