@@ -21,9 +21,9 @@ repositories {
 }
 
 dependencies {
-    implementation("me.paulschwarz:spring-dotenv:4.0.0")
+	implementation("io.github.cdimascio:dotenv-kotlin:6.4.1")
 
-    implementation("software.amazon.awssdk:s3:2.25.0")
+	implementation("software.amazon.awssdk:s3:2.25.0")
 
     implementation("org.springframework.boot:spring-boot-starter-validation")
 
