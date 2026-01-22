@@ -1,0 +1,25 @@
+services:
+  # BACKEND konténer
+  backend:
+    build: ./backend
+    container_name: contact-backend
+    env_file: .env # Az EC2-n létrehozott titkos .env fájlból olvassa a változókat
+    volumes:
+      - ./backend-data:/app/data # Perzisztens SQLite tárhely
+    networks:
+      - app-network
+
+  # FRONTEND konténer
+  frontend:
+    build: ./frontend
+    container_name: contact-frontend
+    ports:
+      - "80:80" # Kinyitjuk a net felé a 80-as portot
+    depends_on:
+      - backend # Megvárja, amíg a backend elindul
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
